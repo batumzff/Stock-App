@@ -10,8 +10,11 @@ import TextField from "@mui/material/TextField"
 import { Button } from "@mui/material"
 import { Formik, Form } from "formik"
 import { object, string } from "yup"
+import useAuthCalls from "../service/useAuthCalls"
 
 const Login = () => {
+  const { login } = useAuthCalls()
+
   const loginSchema = object({
     email: string()
       .email("Lütfen geçerli bir email giriniz")
@@ -70,6 +73,7 @@ const Login = () => {
             validationSchema={loginSchema}
             onSubmit={(values, actions) => {
               //TODO login(post) istegi
+              login(values)
               actions.resetForm()
               actions.setSubmitting(false) //? isSubmitting
               //? veriler global state'e aktırlabilir
