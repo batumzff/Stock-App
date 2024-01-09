@@ -47,12 +47,22 @@ const icons = [
 const MenuListItems = () => {
   const navigate = useNavigate()
   return (
-    <List>
+    <List sx={{color:"white",
+    '&:hover': {
+      color: 'red',
+    },
+  }} >
       {icons.map((item, index) => (
-        <ListItem key={index} disablePadding onClick={() => navigate(item.url)}>
-          <ListItemButton>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.title} />
+        <ListItem key={index} disablePadding onClick={() => navigate(item.url)}  sx={{
+        '&:hover': {
+          '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+            color: 'red', // Hem icon hem de yazı rengini hoverda kırmızı yapma
+          },
+        },
+      }}>
+          <ListItemButton >
+            <ListItemIcon sx={{ color: 'white' }} >{item.icon}</ListItemIcon>
+            <ListItemText primary={item.title} sx={{ color: 'white' }}  />
           </ListItemButton>
         </ListItem>
       ))}
