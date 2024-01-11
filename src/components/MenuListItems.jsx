@@ -1,15 +1,15 @@
-import List from "@mui/material/List"
-import ListItem from "@mui/material/ListItem"
-import ListItemButton from "@mui/material/ListItemButton"
-import ListItemIcon from "@mui/material/ListItemIcon"
-import ListItemText from "@mui/material/ListItemText"
-import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard"
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney"
-import InventoryIcon from "@mui/icons-material/Inventory"
-import StoreIcon from "@mui/icons-material/Store"
-import StarsIcon from "@mui/icons-material/Stars"
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
-import { useNavigate } from "react-router-dom"
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import StoreIcon from "@mui/icons-material/Store";
+import StarsIcon from "@mui/icons-material/Stars";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useNavigate } from "react-router-dom";
 
 const icons = [
   {
@@ -42,32 +42,40 @@ const icons = [
     icon: <InventoryIcon />,
     url: "/stock/products/",
   },
-]
+];
 
 const MenuListItems = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
-    <List sx={{color:"white",
-    '&:hover': {
-      color: 'red',
-    },
-  }} >
-      {icons.map((item, index) => (
-        <ListItem key={index} disablePadding onClick={() => navigate(item.url)}  sx={{
-        '&:hover': {
-          '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-            color: 'red', // Hem icon hem de yazı rengini hoverda kırmızı yapma
-          },
+    <List
+      sx={{
+        color: "white",
+        "&:hover": {
+          color: "red",
         },
-      }}>
-          <ListItemButton >
-            <ListItemIcon sx={{ color: 'white' }} >{item.icon}</ListItemIcon>
-            <ListItemText primary={item.title} sx={{ color: 'white' }}  />
+      }}
+    >
+      {icons.map((item, index) => (
+        <ListItem
+          key={index}
+          disablePadding
+          onClick={() => navigate(item.url)}
+          sx={{
+            "&:hover": {
+              "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
+                color: "red", // Hem icon hem de yazı rengini hoverda kırmızı yapma
+              },
+            },
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon sx={{ color: "white" }}>{item.icon}</ListItemIcon>
+            <ListItemText primary={item.title} sx={{ color: "white" }} />
           </ListItemButton>
         </ListItem>
       ))}
     </List>
-  )
-}
+  );
+};
 
-export default MenuListItems
+export default MenuListItems;
