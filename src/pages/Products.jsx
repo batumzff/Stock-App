@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 import { Grid } from "@mui/material"
 import ProductModal from "../components/ProductModal"
 import ProductTable from "../components/ProductTable"
-import { ErrorMsg } from "../components/DataFetchMsg"
+import TableSkeleton, { ErrorMsg, NoDataMsg } from "../components/DataFetchMsg"
 
 const Products = () => {
   // const { getFirms, getSales } = useStockCalls()
@@ -24,9 +24,9 @@ const Products = () => {
   }
 
   useEffect(() => {
-    getStocks("product")
-    // getStocks("categories")
-    // getStocks("brands")
+    getStocks("products")
+    getStocks("categories")
+    getStocks("brands")
   }, [])
 
   return (
@@ -46,8 +46,11 @@ const Products = () => {
       />
 
       {error && <ErrorMsg />}
+      {loading && <TableSkeleton />}
 
-      {!error && <ProductTable />}
+      {!error && !loading && !products.length && <NoDataMsg />}
+
+      {!loading && !error && products.length > 0 && <ProductTable />}
     </div>
   )
 }

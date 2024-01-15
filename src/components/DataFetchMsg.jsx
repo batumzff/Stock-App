@@ -1,15 +1,30 @@
-import { Typography } from "@mui/material"
+import { Alert, Skeleton, Stack } from "@mui/material"
 
 export const ErrorMsg = () => {
   return (
-    <Typography variant="h5" color={"error"}>
-      Data can not be fetched
-    </Typography>
+    <Alert severity="error" sx={{ my: 3 }}>
+      Veriler çekilemedi.
+    </Alert>
   )
 }
 
-const DataFetchMsg = () => {
-  return <div>DataFetchMsg</div>
+export const NoDataMsg = () => {
+  return (
+    <Alert severity="warning" sx={{ my: 3 }}>
+      Gösterilecek bir veri bulunamadı.
+    </Alert>
+  )
 }
 
-export default DataFetchMsg
+const TableSkeleton = () => {
+  return (
+    <Stack spacing={1}>
+      <Skeleton variant="rectangular" width="100%" height={80} />
+      <Skeleton variant="rectangular" width="100%" height={40} />
+      <Skeleton variant="rectangular" width="100%" height={40} />
+      <Skeleton variant="rectangular" width="100%" height={40} />
+    </Stack>
+  )
+}
+
+export default TableSkeleton
