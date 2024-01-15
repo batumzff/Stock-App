@@ -6,7 +6,11 @@ import { useSelector } from "react-redux"
 import { Grid } from "@mui/material"
 import FirmCard from "../components/FirmCard"
 import FirmModal from "../components/FirmModal"
-import TableSkeleton, { ErrorMsg, NoDataMsg } from "../components/DataFetchMsg"
+import TableSkeleton, {
+  CardSkeleton,
+  ErrorMsg,
+  NoDataMsg,
+} from "../components/DataFetchMsg"
 
 const Firms = () => {
   // const { getFirms, getSales } = useStockCalls()
@@ -29,7 +33,7 @@ const Firms = () => {
 
   useEffect(() => {
     // getFirms()
-    getStocks("firm")
+    getStocks("firms")
   }, [])
 
   return (
@@ -49,7 +53,11 @@ const Firms = () => {
       />
 
       {error && <ErrorMsg />}
-      {loading && <TableSkeleton />}
+      {loading && (
+        <CardSkeleton>
+          <FirmCard />
+        </CardSkeleton>
+      )}
 
       {!error && !loading && !firms.length && <NoDataMsg />}
 

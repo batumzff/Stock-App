@@ -16,6 +16,16 @@ export const NoDataMsg = () => {
   )
 }
 
+export const CardSkeleton = ({ children }) => {
+  return (
+    <Stack justifyContent={"center"} my={3}>
+      <Skeleton variant="rectangular" width="100%">
+        {children}
+      </Skeleton>
+    </Stack>
+  )
+}
+
 const TableSkeleton = () => {
   return (
     <Stack spacing={1}>
