@@ -1,5 +1,21 @@
+import { useEffect } from "react"
+import Charts from "../components/Charts"
+import KPI from "../components/KPI"
+import useStockCalls from "../service/useStockCalls"
+
 const Home = () => {
-  return <div>Home</div>
+  const { getStocks } = useStockCalls()
+
+  useEffect(() => {
+    getStocks("sales")
+  }, [])
+
+  return (
+    <>
+      <KPI />
+      <Charts />
+    </>
+  )
 }
 
 export default Home
