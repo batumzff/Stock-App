@@ -6,9 +6,10 @@ import { Avatar, Box, Paper, Stack, Typography } from "@mui/material"
 import { useSelector } from "react-redux"
 
 const KPI = () => {
-  const { sales } = useSelector((state) => state.stock)
+  const { sales, purchases } = useSelector((state) => state.stock)
 
   const totalSales = sales?.reduce((acc, item) => acc + item.amount, 0)
+  const totalPurchases = purchases?.reduce((acc, item) => acc + item.amount, 0)
 
   const kpiData = [
     {
@@ -22,7 +23,7 @@ const KPI = () => {
     {
       id: 2,
       title: "profit",
-      amount: "$16900",
+      amount: `$${totalSales - totalPurchases}`,
       icon: <ShoppingCartIcon sx={{ fontSize: "2rem" }} />,
       bgColor: pink[100],
       color: pink[700],
@@ -30,14 +31,14 @@ const KPI = () => {
     {
       id: 3,
       title: "purchases",
-      amount: "$16900",
+      amount: `$${totalPurchases}`,
       icon: <PaymentsIcon sx={{ fontSize: "2rem" }} />,
       bgColor: amber[100],
       color: amber[700],
     },
   ]
 
-  console.log(sales)
+  console.log(purchases)
   return (
     <Stack
       justifyContent="center"
