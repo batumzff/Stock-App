@@ -1,23 +1,45 @@
-## `Kurulum`
+## About the Project
 
-```
-npm install veya yarn
-```
+This project, developed with React, is a single-page online web application. It allows you to manage and receive orders. Additionally, it includes an inventory system with the ability to add, edit, delete, and view products, companies, brands, sales, and purchases.
 
-## `Kullanilan Kutuphaneler`
+## Table of Contents
 
-- `@reduxjs/toolkit`
-- `react-redux`
-- `axios`
-- `react-router-dom`
-- `@mui/material-ui`
-- `@emotion/react`
-- `@emotion/styled`
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Usage](#usage)
 
-## `Kullanilacak Araclar`
+- ## Live Demo
 
-- `Redux Dev Tools` : Chrome uzerinde calisan ve global state uzerinde yapilan tum degisikliklerin takip edilmesini saglayan tarayici uzantisidir. Indirmek icin [tiklayiniz.](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?utm_source=chrome-ntp-icon)`
+[Stock App](https://stock-app-lyart.vercel.app/)
 
-## Uygulamanın Canlı Ornegi:
+## Features
 
-https://stock-new.netlify.app/
+- Login and register operations
+- Pagination for smooth transitions between pages.
+- Dashboard section where purchases and sales sections are tabulated
+- Purchases, sales, firms, brands and product sections that you can add, delete and update yourself
+
+- ## Technologies Used
+
+- React
+- Redux
+- Redux-Toolkit
+- Axios for API requests
+- React-Router-Dom
+- Styling with [Material UI](https://mui.com/)
+- [React-Toastify](https://fkhadra.github.io/react-toastify/introduction/) for alert 
+- [Redux-Persist](https://www.npmjs.com/package/redux-persist) for status data retention.
+- [Tremor](https://www.tremor.so/) for charts
+- [Formik](https://formik.org/) for form management 
+- [Yup](https://www.npmjs.com/package/yup) for form validation processes
+
+- ## Usage
+
+- Create your registration from the Register section and log in from the login section
+- Pagination for smooth transitions between pages.
+- Create your own stock
+- Add, delete and update purchases, sales, firms, brands and product sections
+
+- ## Compatibility
+
+The project is compatible with both wide-screen computers and mobile devices.
